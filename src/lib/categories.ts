@@ -1,12 +1,12 @@
 export const CATEGORIES = [
-  { name: 'Work', color: 'hsl(220, 80%, 55%)', icon: '💼' },
+  { name: 'Work', color: 'hsl(185, 75%, 50%)', icon: '💼' },
   { name: 'Study', color: 'hsl(280, 70%, 55%)', icon: '📚' },
-  { name: 'Sleep', color: 'hsl(240, 50%, 45%)', icon: '😴' },
-  { name: 'Exercise', color: 'hsl(150, 70%, 45%)', icon: '🏃' },
-  { name: 'Entertainment', color: 'hsl(340, 75%, 55%)', icon: '🎮' },
-  { name: 'Food', color: 'hsl(30, 85%, 50%)', icon: '🍽️' },
-  { name: 'Travel', color: 'hsl(190, 70%, 50%)', icon: '🚗' },
-  { name: 'Other', color: 'hsl(220, 10%, 55%)', icon: '📌' },
+  { name: 'Sleep', color: 'hsl(260, 50%, 45%)', icon: '😴' },
+  { name: 'Exercise', color: 'hsl(160, 70%, 45%)', icon: '🏃' },
+  { name: 'Entertainment', color: 'hsl(320, 75%, 55%)', icon: '🎮' },
+  { name: 'Food', color: 'hsl(35, 85%, 55%)', icon: '🍽️' },
+  { name: 'Travel', color: 'hsl(195, 70%, 50%)', icon: '🚗' },
+  { name: 'Other', color: 'hsl(220, 20%, 55%)', icon: '📌' },
 ] as const;
 
 export type CategoryName = typeof CATEGORIES[number]['name'];

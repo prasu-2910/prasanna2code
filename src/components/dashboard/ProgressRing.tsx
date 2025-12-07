@@ -17,6 +17,12 @@ export const ProgressRing = ({ totalMinutes, size = 180 }: ProgressRingProps) =>
   return (
     <div className="relative inline-flex items-center justify-center">
       <svg width={size} height={size} className="transform -rotate-90">
+        <defs>
+          <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(185, 75%, 50%)" />
+            <stop offset="100%" stopColor="hsl(280, 70%, 55%)" />
+          </linearGradient>
+        </defs>
         {/* Background circle */}
         <circle
           cx={size / 2}
@@ -32,16 +38,19 @@ export const ProgressRing = ({ totalMinutes, size = 180 }: ProgressRingProps) =>
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke={isComplete ? 'hsl(150, 70%, 45%)' : 'hsl(var(--primary))'}
+          stroke={isComplete ? 'hsl(160, 70%, 45%)' : 'url(#progressGradient)'}
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           className="transition-all duration-700 ease-out"
+          style={{
+            filter: isComplete ? 'none' : 'drop-shadow(0 0 8px hsl(185, 75%, 50%))',
+          }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-3xl font-display font-bold">
+        <span className="text-3xl font-display font-bold gradient-text">
           {formatMinutesToTime(totalMinutes)}
         </span>
         <span className="text-sm text-muted-foreground">

@@ -8,9 +8,13 @@ import { ActivityList } from './ActivityList';
 import { NoDataView } from './NoDataView';
 import { AnalyticsDashboard } from './AnalyticsDashboard';
 import { useActivities } from '@/hooks/useActivities';
-import { MINUTES_IN_DAY, formatMinutesToTime } from '@/lib/categories';
+import { CATEGORIES, formatMinutesToTime } from '@/lib/categories';
 import { BarChart3, ListTodo, Loader2 } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { toast } from '@/hooks/use-toast';
 
 export const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -103,7 +107,7 @@ export const Dashboard = () => {
                       remainingMinutes={remainingMinutes}
                     />
                   ) : (
-                    <div className="text-center p-4 rounded-xl bg-green-500/10 text-green-600">
+                    <div className="text-center p-4 rounded-xl bg-primary/10 text-primary">
                       <p className="font-medium">Day Complete!</p>
                       <p className="text-sm mt-1">All 24 hours logged</p>
                     </div>
@@ -160,12 +164,6 @@ export const Dashboard = () => {
 };
 
 // Inline form content for the dialog
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { CATEGORIES } from '@/lib/categories';
-import { toast } from '@/hooks/use-toast';
-
 const ActivityFormContent = ({
   onSubmit,
   remainingMinutes,
@@ -176,7 +174,7 @@ const ActivityFormContent = ({
   onClose: () => void;
 }) => {
   const [title, setTitle] = useState('');
-  const [category, setCategory] = useState(CATEGORIES[0].name);
+  const [category, setCategory] = useState<string>(CATEGORIES[0].name);
   const [hours, setHours] = useState('0');
   const [minutes, setMinutes] = useState('30');
   const [loading, setLoading] = useState(false);
