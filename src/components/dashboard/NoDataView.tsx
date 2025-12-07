@@ -14,11 +14,11 @@ export const NoDataView = ({ date, onAddClick }: NoDataViewProps) => {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-4 text-center opacity-0 animate-fade-in">
       <div className="relative mb-8">
-        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center animate-float">
-          <Calendar className="w-16 h-16 text-primary/60" />
+        <div className="w-32 h-32 rounded-full gradient-bg flex items-center justify-center animate-float glow-effect">
+          <Calendar className="w-16 h-16 text-background" />
         </div>
         <div className="absolute -bottom-2 -right-2 w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center shadow-lg">
-          <Clock className="w-6 h-6 text-muted-foreground" />
+          <Clock className="w-6 h-6 text-primary" />
         </div>
       </div>
 
@@ -35,15 +35,15 @@ export const NoDataView = ({ date, onAddClick }: NoDataViewProps) => {
 
       <div className="mt-12 grid grid-cols-3 gap-8 text-center">
         <div>
-          <div className="text-3xl font-display font-bold text-muted-foreground/50">24h</div>
+          <div className="text-3xl font-display font-bold text-primary">24h</div>
           <div className="text-sm text-muted-foreground">Available</div>
         </div>
         <div>
-          <div className="text-3xl font-display font-bold text-muted-foreground/50">0</div>
+          <div className="text-3xl font-display font-bold text-accent">0</div>
           <div className="text-sm text-muted-foreground">Activities</div>
         </div>
         <div>
-          <div className="text-3xl font-display font-bold text-muted-foreground/50">0%</div>
+          <div className="text-3xl font-display font-bold text-secondary">0%</div>
           <div className="text-sm text-muted-foreground">Tracked</div>
         </div>
       </div>

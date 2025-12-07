@@ -58,13 +58,20 @@ export const LandingPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row">
+    <div className="min-h-screen flex flex-col lg:flex-row relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl" />
+      </div>
+
       {/* Left side - Hero */}
-      <div className="flex-1 flex flex-col justify-center px-8 lg:px-16 py-12 lg:py-0">
+      <div className="flex-1 flex flex-col justify-center px-8 lg:px-16 py-12 lg:py-0 relative z-10">
         <div className="max-w-xl mx-auto lg:mx-0">
           <div className="flex items-center gap-3 mb-8 opacity-0 animate-fade-in">
-            <div className="w-12 h-12 rounded-2xl gradient-bg flex items-center justify-center shadow-glow">
-              <Clock className="w-6 h-6 text-primary-foreground" />
+            <div className="w-12 h-12 rounded-2xl gradient-bg flex items-center justify-center glow-effect">
+              <Clock className="w-6 h-6 text-background" />
             </div>
             <span className="text-2xl font-display font-bold">TimeFlow</span>
           </div>
@@ -100,9 +107,9 @@ export const LandingPage = () => {
       </div>
 
       {/* Right side - Auth */}
-      <div className="flex-1 flex items-center justify-center p-8 lg:p-16 bg-card/50">
+      <div className="flex-1 flex items-center justify-center p-8 lg:p-16 relative z-10">
         <div className="w-full max-w-md opacity-0 animate-scale-in stagger-2">
-          <div className="glass-card p-8">
+          <div className="glass-card p-8 gradient-border">
             <h2 className="text-2xl font-display font-bold mb-2">
               {isLogin ? 'Welcome back' : 'Get started'}
             </h2>
@@ -121,7 +128,7 @@ export const LandingPage = () => {
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-12"
+                  className="h-12 bg-background/50"
                 />
                 {errors.email && (
                   <p className="text-sm text-destructive">{errors.email}</p>
@@ -136,7 +143,7 @@ export const LandingPage = () => {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="h-12"
+                  className="h-12 bg-background/50"
                 />
                 {errors.password && (
                   <p className="text-sm text-destructive">{errors.password}</p>
@@ -186,8 +193,8 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="p-4 rounded-xl bg-card/50 border border-border/50 hover-lift">
-    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-3">
+  <div className="p-4 rounded-xl glass-card hover-lift">
+    <div className="w-10 h-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center mb-3">
       {icon}
     </div>
     <h3 className="font-medium mb-1">{title}</h3>
