@@ -7,7 +7,7 @@ import { ActivityForm } from './ActivityForm';
 import { ActivityList } from './ActivityList';
 import { NoDataView } from './NoDataView';
 import { AnalyticsDashboard } from './AnalyticsDashboard';
-import { useActivities } from '@/hooks/useActivities';
+import { useFirebaseActivities } from '@/hooks/useFirebaseActivities';
 import { CATEGORIES, formatMinutesToTime } from '@/lib/categories';
 import { BarChart3, ListTodo, Loader2 } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -29,7 +29,7 @@ export const Dashboard = () => {
     deleteActivity,
     totalMinutes,
     remainingMinutes,
-  } = useActivities(selectedDate);
+  } = useFirebaseActivities(selectedDate);
 
   const canAnalyze = activities.length > 0;
 
