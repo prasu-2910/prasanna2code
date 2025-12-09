@@ -1,10 +1,10 @@
-import { useAuth } from '@/hooks/useAuth';
+import { useFirebaseAuth } from '@/hooks/useFirebaseAuth';
 import { LandingPage } from '@/components/landing/LandingPage';
 import { Dashboard } from '@/components/dashboard/Dashboard';
 import { Loader2 } from 'lucide-react';
 
 const Index = () => {
-  const { user, loading } = useAuth();
+  const { user, loading } = useFirebaseAuth();
 
   if (loading) {
     return (

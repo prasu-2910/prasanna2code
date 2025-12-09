@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
-import { useAuth } from '@/hooks/useAuth';
+import { useFirebaseAuth } from '@/hooks/useFirebaseAuth';
 import { Clock, LogOut } from 'lucide-react';
 
 export const Header = () => {
-  const { user, signOut } = useAuth();
+  const { user, signOut } = useFirebaseAuth();
 
   return (
     <header className="border-b border-border/50 bg-card/50 backdrop-blur-sm sticky top-0 z-50">

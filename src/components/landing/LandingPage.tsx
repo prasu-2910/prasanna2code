@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useAuth } from '@/hooks/useAuth';
+import { useFirebaseAuth } from '@/hooks/useFirebaseAuth';
 import { Clock, BarChart3, Calendar, ArrowRight, Loader2 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 import { z } from 'zod';
@@ -13,7 +13,7 @@ const authSchema = z.object({
 });
 
 export const LandingPage = () => {
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp } = useFirebaseAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
